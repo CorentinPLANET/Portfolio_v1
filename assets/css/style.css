@@ -16,11 +16,11 @@
 	position: fixed;
 	width: 100%;
 	height: 7rem;
-	background-color: #120e1d;
+	background-color: #0e101d;
 }
 
 .pres {
-	background-color: #18161e;
+	background-color: #161a1e;
 	padding: 10rem 0 5rem 0;
 }
 
@@ -40,10 +40,13 @@ h1,
 h2,
 h3,
 h4,
-p,
-a,
 span {
-	color: #d2d2d2;
+	color: #72ff4f;
+}
+
+a,
+p {
+	color: #95ff7b;
 }
 
 h1 {
@@ -53,7 +56,7 @@ h1 {
 
 .projects {
 	padding: 2rem 0;
-	background-color: #231e29;
+	background-color: #1e2229;
 }
 
 .projects__title {
@@ -62,32 +65,43 @@ h1 {
 }
 
 .cards__container {
-	display: flex;
-	justify-self: center;
-	justify-content: center;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: auto;
+	height: fit-content;
 	padding: 2rem 0;
-	flex-wrap: wrap;
 	gap: 2rem;
 }
 
 .cards {
-	width: 30%;
-	padding: 1rem;
+	display: flex;
+	width: 100%;
+	flex-direction: column;
 	border-radius: 8px;
-	background-color: #18161e;
+	background-color: #16181e;
+	padding: 1rem;
+	transition: 0.2s ease-in-out;
+}
+
+.cards:hover {
+	transform: scale(1.05);
+	transform-origin: center;
+	background-color: #293138;
+	border: #353749 2px solid;
+	box-shadow: 4px 4px 5px #0e131d,
+		-2px -2px 5px #3a4858;
 }
 
 .cards__img {
 	width: 100%;
-	height: 40%;
+	aspect-ratio: 16 / 9;
 	object-fit: cover;
 }
 
 .cards__content {
 	display: flex;
-	height: 60%;
+	flex: 1;
 	flex-direction: column;
-	justify-content: space-evenly;
 	align-items: center;
 }
 
@@ -108,26 +122,28 @@ h1 {
 }
 
 .cards__language__tags {
-	border: #00ffee solid 2px;
+	border: #97fff8 solid 2px;
 	height: fit-content;
 	font-weight: bolder;
+	transition: transform 0.2s ease-in-out;
 	border-radius: 4px;
 	padding: 0.3rem;
-	color: #00ffee;
+	color: #97fff8;
 }
 
 .cards__language__tags:hover {
-	transition: 200ms;
+	transform: scale(1.1);
+	transform-origin: center;
 	cursor: default;
-	font-size: large;
 }
 
 .cards__github {
+	margin-top: auto;
 	text-decoration: none;
 }
 
 .info {
-	background-color: #18161e;
+	background-color: #16181e;
 	width: 100%;
 }
 
@@ -150,6 +166,19 @@ h1 {
 }
 
 .info__links {
-
 	text-decoration: none;
+}
+
+@media (max-width: 768px) {
+	.cards__container {
+		padding: 2rem 1rem;
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+	.cards__container {
+		padding: 2rem 0.5rem;
+		grid-template-columns: repeat(2, 1fr)
+	}
 }
